@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VILI – Bahasa Indonesia SMA</title>
+<title>Vili Belajar – Bahasa Indonesia SMA</title>
 <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Fraunces:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
 
@@ -1255,7 +1255,7 @@ input,textarea,button,select{font-family:var(--font-body)}
 
 <!-- LOADING -->
 <div class="loading-overlay" id="loading-overlay">
-  <div class="loading-wordmark">LHO Academy</div>
+  <div class="loading-wordmark">Vili Belajar</div>
   <div class="loading-track"><div class="loading-fill" id="loading-fill"></div></div>
   <div class="loading-sub">Memuat platform belajar...</div>
 </div>
@@ -1280,7 +1280,7 @@ input,textarea,button,select{font-family:var(--font-body)}
     <p class="err-msg" id="admin-err">Username atau password salah!</p>
     <div class="modal-btns">
       <button class="btn-mc" onclick="closeAdminModal()">Batal</button>
-      <button class="btn-mo" onclick="doAdminLogin()">🚀 Masuk</button>
+      <button class="btn-mo" onclick="doAdminLogin()">Masuk</button>
     </div>
   </div>
 </div>
@@ -1298,21 +1298,21 @@ input,textarea,button,select{font-family:var(--font-body)}
   <div class="login-scene">
     <div class="login-card">
       <div class="lc-eyebrow"><span class="lc-dot"></span>Bahasa Indonesia SMA</div>
-      <h1 class="lc-headline">Kuasai Teks <em>LHO</em> dengan Cerdas</h1>
+      <h1 class="lc-headline">Kuasai Teks <em>LHO</em> Mari Belajar</h1>
       <p class="lc-sub">Platform belajar Laporan Hasil Observasi yang komprehensif — materi terstruktur, kuis adaptif, AI Tutor, dan komunitas belajar. 🚀</p>
       <div class="feat-pills">
         <span class="fpill">📚 12 Topik Materi</span>
         <span class="fpill">⚡ 25 Soal Kuis</span>
-        <span class="fpill">🤖 AI Tutor</span>
-        <span class="fpill">🏆 Ranking Live</span>
+        <span class="fpill">🤖 AI</span>
+        <span class="fpill">🏆 Ranking</span>
       </div>
       <div class="field-wrap">
-        <label class="field-lbl">👤 Nama Kamu</label>
-        <input class="field-inp" id="inp-name" type="text" placeholder="Masukkan nama kamu..." maxlength="40" autocomplete="off" onkeydown="if(event.key==='Enter')doLogin()">
+        <label class="field-lbl"> Nama Anda</label>
+        <input class="field-inp" id="inp-name" type="text" placeholder="Masukkan nama anda..." maxlength="40" autocomplete="off" onkeydown="if(event.key==='Enter')doLogin()">
       </div>
       <p class="err-msg" id="login-err">Nama tidak boleh kosong!</p>
       <button class="btn-login" id="btn-login" onclick="doLogin()">
-        <span id="btn-login-text">Mulai Belajar 🚀</span>
+        <span id="btn-login-text">Mulai Belajar</span>
         <span id="btn-login-spin" class="spinner" style="display:none"></span>
       </button>
       <div class="secret-area">
@@ -1327,7 +1327,7 @@ input,textarea,button,select{font-family:var(--font-body)}
   <div class="topbar">
     <div class="logo" onclick="goTo('home')">
       <div class="logo-mark">📖</div>
-      <span class="logo-name">LHO Academy</span>
+      <span class="logo-name">Vili Belajar</span>
     </div>
     <div class="topbar-r">
       <div class="user-chip" id="user-pill-home">👤 ...</div>
@@ -1339,7 +1339,7 @@ input,textarea,button,select{font-family:var(--font-body)}
     <h1>
       <span class="h1-line3">Selamat Datang,</span>
       <span class="h1-line1" id="hero-name-display">BELAJAR</span>
-      <span class="h1-line2">Dengan Cerdas</span>
+      <span class="h1-line2">Mari Belajar</span>
     </h1>
     <p class="hero-desc">Platform belajar Teks Laporan Hasil Observasi — dari materi kurikulum, kuis adaptif, hingga AI Tutor pribadi yang siap membantu kapan saja.</p>
     <div class="hero-actions">
@@ -1385,7 +1385,7 @@ input,textarea,button,select{font-family:var(--font-body)}
       </div>
       <div class="fc fc-tulis" onclick="goTo('tulis')">
         <div class="fc-ico">✍️</div>
-        <h3>Lab Menulis</h3>
+        <h3>Menulis</h3>
         <p>Template terstruktur, generator ide observasi, dan simpan draf tulisanmu.</p>
         <span class="fc-tag">Menulis & Berbicara</span>
       </div>
@@ -1633,7 +1633,7 @@ input,textarea,button,select{font-family:var(--font-body)}
   <div class="admin-wrap">
     <div class="admin-banner">
       <h1>Dashboard</h1>
-      <p>Monitoring real-time aktivitas siswa LHO Academy SMA</p>
+      <p>Monitoring real-time aktivitas siswa Vili Belajar SMA</p>
     </div>
     <div class="admin-stats">
       <div class="stat-box"><div class="stat-n" id="st-total">0</div><div class="stat-l">Total Siswa</div></div>
@@ -1928,10 +1928,10 @@ const QUIZ_BANK = [
 ];
 
 const MOTIVASI = {
-  elite:[{quote:"Kecemerlangan bukan tentang tidak pernah gagal, tapi tentang terus bangkit dengan lebih bijak.",author:"LHO Academy"}],
-  bagus:[{quote:"Setiap langkah maju, sekecil apapun, adalah kemenangan yang layak dirayakan.",author:"LHO Academy"}],
-  cukup:[{quote:"Kegagalan adalah data, bukan takdir. Analisis, pelajari, dan ulangi dengan lebih baik.",author:"LHO Academy"}],
-  belajar_lagi:[{quote:"Thomas Edison gagal 1000 kali sebelum menemukan bola lampu. Kegagalanmu baru ke-1.",author:"LHO Academy"}]
+  elite:[{quote:"Kecemerlangan bukan tentang tidak pernah gagal, tapi tentang terus bangkit dengan lebih bijak.",author:"Vili Belajar"}],
+  bagus:[{quote:"Setiap langkah maju, sekecil apapun, adalah kemenangan yang layak dirayakan.",author:"Vili Belajar"}],
+  cukup:[{quote:"Kegagalan adalah data, bukan takdir. Analisis, pelajari, dan ulangi dengan lebih baik.",author:"Vili Belajar"}],
+  belajar_lagi:[{quote:"Thomas Edison gagal 1000 kali sebelum menemukan bola lampu. Kegagalanmu baru ke-1.",author:"Vili Belajar"}]
 };
 
 const OBJEK_POOL = [
