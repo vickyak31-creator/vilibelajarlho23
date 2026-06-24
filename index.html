@@ -2623,5 +2623,92 @@ window.addEventListener('beforeunload',()=>{if(!isAdmin&&db&&userId&&!userId.sta
 /* ─── BOOT ─── */
 initApp();
 </script>
+  <<script type="importmap">
+  {
+    "imports": {
+      "@google/generative-ai": "https://esm.run/@google/generative-ai"
+    }
+  }
+</script>
+
+<script type="module">
+  import { GoogleGenerativeAI } from "@google/generative-ai";
+
+  // --- KONFIGURASI API ---
+  const API_KEY = "AIzaSyAhwv76zijidcGBHtS2PtMjeEnO4b2ROkE"; 
+  const genAI = new GoogleGenerativeAI(API_KEY);
+
+  // Seleksi elemen sesuai kodingan kamu
+  const btnSend = document.querySelector('.btn-send');
+  const chatInput = document.querySelector('.chat-textarea');
+  const chatWindow = document.querySelector('.chat-window');
+
+  // Fungsi untuk menampilkan pesan ke layar
+  function tambahPesan(peran, teks) {
+    // Hapus pesan "Kosong" jika ada
+    const emptyMsg = document.querySelector('.chat-empty');
+    if (emptyMsg) emptyMsg.style.display = 'none';
+
+    const bubbleClass = peran === 'user' ? 'bubble-user' : 'bubble-ai';
+    const label = peran === 'user' ? 'Kamu' : 'Guru LHO';
+    
+    const bubble = `
+      <div class="bubble ${bubbleClass}">
+        <span class="bubble-meta">${label}</span>
+        ${teks}
+      </div>
+    `;
+    chatWindow.innerHTML += bubble;
+    chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll ke bawah
+  }
+
+  // --- FUNGSI UTAMA KIRIM PESAN ---
+  async function kirimPesan() {
+    const prompt = chatInput.value.trim();
+    if (!prompt) return;
+
+    // Tampilkan pesan user
+    tambahPesan('user', prompt);
+    chatInput.value = ""; // Bersihkan kolom input
+
+    // Tampilkan animasi "sedang berpikir"
+    const thinkingId = "thinking-" + Date.now();
+    chatWindow.innerHTML += `<div class="bubble bubble-thinking" id="${thinkingId}">Guru sedang mengetik...</div>`;
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    try {
+      // Panggil AI Gemini
+      const model = genAI.getGenerativeModel({ 
+        model: "gemini-1.5-flash",
+        systemInstruction: "Kamu adalah Guru Bahasa Indonesia di LHO Academy. Tugasmu menjawab pertanyaan tentang Laporan Hasil Observasi dengan ramah dan mendalam."
+      });
+
+      const result = await model.generateContent(prompt);
+      const response = await result.response;
+      const text = response.text();
+
+      // Hapus animasi berpikir dan ganti dengan jawaban asli
+      document.getElementById(thinkingId).remove();
+      tambahPesan('ai', text);
+
+    } catch (error) {
+      console.error(error);
+      document.getElementById(thinkingId).innerText = "Aduh, maaf ada gangguan koneksi ke otak AI saya.";
+    }
+  }
+
+  // Jalankan fungsi saat tombol diklik
+  if (btnSend) {
+    btnSend.addEventListener('click', kirimPesan);
+  }
+
+  // Jalankan fungsi saat tekan Enter di keyboard
+  chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      kirimPesan();
+    }
+  });
+</script>
 </body>
 </html>
